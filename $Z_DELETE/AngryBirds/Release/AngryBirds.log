@@ -1,0 +1,246 @@
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  AppClass.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  AppClassControls.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  AppClassGUI.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  AppClassMain.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  ControllerConfiguration.cpp
+  Main.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  MyEntity.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\definitions.h(189): warning C4251: 'Simplex::MeshOptions::m_m4Transform': struct 'glm::tmat4x4<float,0>' needs to have dll-interface to be used by clients of struct 'Simplex::MeshOptions'
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\glm\detail\type_mat.hpp(304): note: see declaration of 'glm::tmat4x4<float,0>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(20): warning C4251: 'Simplex::Folder::m_sRoot': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(21): warning C4251: 'Simplex::Folder::m_sData': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(22): warning C4251: 'Simplex::Folder::m_sBTO': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(23): warning C4251: 'Simplex::Folder::m_sFBX': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(24): warning C4251: 'Simplex::Folder::m_sOBJ': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(25): warning C4251: 'Simplex::Folder::m_sLVL': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(26): warning C4251: 'Simplex::Folder::m_sAudio': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(27): warning C4251: 'Simplex::Folder::m_sTextures': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(28): warning C4251: 'Simplex::Folder::m_sShaders': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(29): warning C4251: 'Simplex::Folder::m_sAddOn': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(32): warning C4251: 'Simplex::SystemSingleton::m_sWindowName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(33): warning C4251: 'Simplex::SystemSingleton::m_sAppName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): warning C4251: 'Simplex::SystemSingleton::m_clockList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(36): warning C4251: 'Simplex::SystemSingleton::m_deltaList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): warning C4251: 'Simplex::SystemSingleton::m_countdownList': class 'std::vector<float,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=float
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): note: see declaration of 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  MyEntityManager.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\definitions.h(189): warning C4251: 'Simplex::MeshOptions::m_m4Transform': struct 'glm::tmat4x4<float,0>' needs to have dll-interface to be used by clients of struct 'Simplex::MeshOptions'
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\glm\detail\type_mat.hpp(304): note: see declaration of 'glm::tmat4x4<float,0>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(20): warning C4251: 'Simplex::Folder::m_sRoot': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(21): warning C4251: 'Simplex::Folder::m_sData': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(22): warning C4251: 'Simplex::Folder::m_sBTO': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(23): warning C4251: 'Simplex::Folder::m_sFBX': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(24): warning C4251: 'Simplex::Folder::m_sOBJ': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(25): warning C4251: 'Simplex::Folder::m_sLVL': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(26): warning C4251: 'Simplex::Folder::m_sAudio': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(27): warning C4251: 'Simplex::Folder::m_sTextures': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(28): warning C4251: 'Simplex::Folder::m_sShaders': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(29): warning C4251: 'Simplex::Folder::m_sAddOn': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(32): warning C4251: 'Simplex::SystemSingleton::m_sWindowName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(33): warning C4251: 'Simplex::SystemSingleton::m_sAppName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): warning C4251: 'Simplex::SystemSingleton::m_clockList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(36): warning C4251: 'Simplex::SystemSingleton::m_deltaList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): warning C4251: 'Simplex::SystemSingleton::m_countdownList': class 'std::vector<float,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=float
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): note: see declaration of 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  MyRigidBody.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\definitions.h(189): warning C4251: 'Simplex::MeshOptions::m_m4Transform': struct 'glm::tmat4x4<float,0>' needs to have dll-interface to be used by clients of struct 'Simplex::MeshOptions'
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\glm\detail\type_mat.hpp(304): note: see declaration of 'glm::tmat4x4<float,0>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(20): warning C4251: 'Simplex::Folder::m_sRoot': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(21): warning C4251: 'Simplex::Folder::m_sData': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(22): warning C4251: 'Simplex::Folder::m_sBTO': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(23): warning C4251: 'Simplex::Folder::m_sFBX': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(24): warning C4251: 'Simplex::Folder::m_sOBJ': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(25): warning C4251: 'Simplex::Folder::m_sLVL': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(26): warning C4251: 'Simplex::Folder::m_sAudio': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(27): warning C4251: 'Simplex::Folder::m_sTextures': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(28): warning C4251: 'Simplex::Folder::m_sShaders': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(29): warning C4251: 'Simplex::Folder::m_sAddOn': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(32): warning C4251: 'Simplex::SystemSingleton::m_sWindowName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(33): warning C4251: 'Simplex::SystemSingleton::m_sAppName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): warning C4251: 'Simplex::SystemSingleton::m_clockList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(36): warning C4251: 'Simplex::SystemSingleton::m_deltaList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): warning C4251: 'Simplex::SystemSingleton::m_countdownList': class 'std::vector<float,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=float
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): note: see declaration of 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory
+  MySolver.cpp
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\definitions.h(189): warning C4251: 'Simplex::MeshOptions::m_m4Transform': struct 'glm::tmat4x4<float,0>' needs to have dll-interface to be used by clients of struct 'Simplex::MeshOptions'
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\glm\detail\type_mat.hpp(304): note: see declaration of 'glm::tmat4x4<float,0>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(20): warning C4251: 'Simplex::Folder::m_sRoot': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(21): warning C4251: 'Simplex::Folder::m_sData': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(22): warning C4251: 'Simplex::Folder::m_sBTO': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(23): warning C4251: 'Simplex::Folder::m_sFBX': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(24): warning C4251: 'Simplex::Folder::m_sOBJ': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(25): warning C4251: 'Simplex::Folder::m_sLVL': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(26): warning C4251: 'Simplex::Folder::m_sAudio': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(27): warning C4251: 'Simplex::Folder::m_sTextures': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(28): warning C4251: 'Simplex::Folder::m_sShaders': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\folder.h(29): warning C4251: 'Simplex::Folder::m_sAddOn': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::Folder'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(32): warning C4251: 'Simplex::SystemSingleton::m_sWindowName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(33): warning C4251: 'Simplex::SystemSingleton::m_sAppName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\xstring(4347): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): warning C4251: 'Simplex::SystemSingleton::m_clockList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(36): warning C4251: 'Simplex::SystemSingleton::m_deltaList': class 'std::vector<DWORD,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=DWORD
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(35): note: see declaration of 'std::vector<DWORD,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=DWORD
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): warning C4251: 'Simplex::SystemSingleton::m_countdownList': class 'std::vector<float,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'Simplex::SystemSingleton'
+          with
+          [
+              _Ty=float
+          ]
+  d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\systemsingleton.h(37): note: see declaration of 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+d:\profiles\nvm6501\source\repos\simplex_2181\include\simplex\system\window.h(13): fatal error C1083: Cannot open include file: 'Resource.h': No such file or directory

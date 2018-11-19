@@ -10,7 +10,7 @@ Modified: 2017/06
 #define __WINDOWCLASS_H_
 
 #include <windows.h>
-#include "Resource.h"
+#include "resource.h"
 #include "Simplex\system\Definitions.h" //Simplex basic Definitions
 #include "Simplex\System\SystemSingleton.h"
 

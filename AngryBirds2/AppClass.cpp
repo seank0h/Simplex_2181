@@ -13,8 +13,14 @@ void Application::InitVariables(void)
 	m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve");
 	m_pEntityMngr->UsePhysicsSolver();
 
+	//m_pMeshMngr->AddPlaneToRenderList
 	//Ground
-	m_pMeshMngr->GeneratePlane(100.0f, vector3(2.0f));
+	//MyMesh m_pPlane = new MyMesh();
+
+	//m_pMeshMngr->GeneratePlane(100.0f, vector3(2.0f));
+	
+
+	//m_pMeshMngr->AddPlaneToRenderList(IDENTITY_M4, C_WHITE);
 	/*
 	for (int i = 0; i < 100; i++)
 	{
@@ -58,6 +64,9 @@ void Application::Display(void)
 
 	// draw a skybox
 	m_pMeshMngr->AddSkyboxToRenderList();
+
+	m_pMeshMngr->AddPlaneToRenderList(IDENTITY_M4, C_WHITE);
+	m_pMeshMngr->AddSphereToRenderList(IDENTITY_M4, C_CYAN);
 
 	//render list call
 	m_uRenderCallCount = m_pMeshMngr->Render();
