@@ -85,6 +85,8 @@ void Application::InitVariables(void)
 	//load model
 	m_pModel = new Simplex::Model();
 	m_pModel->Load("Lego\\Unikitty.BTO");
+
+	
 #pragma endregion
 }
 void Application::Update(void)
