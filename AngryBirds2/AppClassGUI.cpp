@@ -15,10 +15,14 @@ void Application::DrawGUI(void)
 	//m_pMeshMngr->Print("						");
 	m_pMeshMngr->Print("RenderCalls: ");//Add a line on top
 	m_pMeshMngr->PrintLine(std::to_string(m_uRenderCallCount), C_YELLOW);
-
+	String xForce = " " + (int)force.x;
+	String yForce = " " + (int)force.y;
+	String zForce = " " + (int)force.z;
 	//m_pMeshMngr->Print("						");
 	m_pMeshMngr->Print("FPS:");
 	m_pMeshMngr->PrintLine(std::to_string(m_pSystem->GetFPS()), C_RED);
+
+	
 #pragma endregion
 
 	//Calculate the window size to know how to draw
@@ -32,6 +36,7 @@ void Application::DrawGUI(void)
 		ImGui::SetNextWindowPos(ImVec2(1, 1), ImGuiSetCond_FirstUseEver);
 		ImGui::SetNextWindowSize(ImVec2(340, 60), ImGuiSetCond_FirstUseEver);
 		String sAbout = m_pSystem->GetAppName() + " - About";
+	
 		ImGui::Begin(sAbout.c_str(), (bool*)0, window_flags);
 		{
 			ImGui::Text("Programmer: \n");
@@ -39,14 +44,23 @@ void Application::DrawGUI(void)
 			ImGui::Text("FrameRate: %.2f [FPS] -> %.3f [ms/frame]\n",
 				ImGui::GetIO().Framerate, 1000.0f / ImGui::GetIO().Framerate);
 			ImGui::Separator();
-			ImGui::Text("Control:\n");
-			ImGui::Text("   WASD: Movement\n");
+			ImGui::Text("Controls:\n");
+			ImGui::Text("   WASD: Movement for Camera\n");
 			ImGui::Text("	 F1: Perspective\n");
 			ImGui::Text("	 F2: Orthographic X\n");
 			ImGui::Text("	 F3: Orthographic Y\n");
 			ImGui::Text("	 F4: Orthographic Z\n");
+			ImGui::Text("	 Hold F to follow projectile");
 			ImGui::Separator();
-			ImGui::Text("Arrows: Apply force to Steve\n");
+			ImGui::Text("1: Launch Projectile");
+			ImGui::Text("Press the Corresponding Letters to increase the variable");
+			ImGui::Text("Force Vector X:%i", (int)force.x);
+			ImGui::Text("Force Vector Y:%i", (int)force.y);
+			ImGui::Text("Force Vector Z:%i", (int)force.z);
+			ImGui::Text("Press B to lower force in X direction");
+			ImGui::Text("Press N to lower force in Y direction");
+			ImGui::Text("Press M to lower force in Z direction");
+		
 		}
 		ImGui::End();
 	}

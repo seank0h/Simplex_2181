@@ -59,6 +59,9 @@ namespace Simplex
 
 		//Increment for the Y position for the blocks
 		float yIncrement;
+		vector3 angleLaunch;
+		float fAngleX;
+		float fAngleY;
 	public:
 		MyEntity * bird;
 		vector3 force;

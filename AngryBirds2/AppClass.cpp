@@ -10,10 +10,24 @@ void Application::InitVariables(void)
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light (0 is reserved for ambient light)
 
-	m_pEntityMngr->AddEntity("Planets\\Sun.obj", "Sun");
-	m_pEntityMngr->SetMass(5.0f, 0);
+	m_pEntityMngr->AddEntity("Planets\\00_Sun.obj", "Sun");
 	bird = m_pEntityMngr->GetEntity(0);
 	m_pEntityMngr->UsePhysicsSolver();
+	for (size_t i = 0; i < 2; i++)
+	{
+		yIncrement += 5;
+		m_pEntityMngr->AddEntity("Minecraft\\Cube.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
+		vector3 v3Position = vector3(glm::sphericalRand(12.0f));
+		v3Position.y = yIncrement;
+		v3Position.z = 10.0f;
+		v3Position.x = 0.0f;
+		matrix4 m4Position = glm::translate(v3Position);
+		m_pEntityMngr->SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
+		m_pEntityMngr->UsePhysicsSolver();
+	}
+
+	m_pEntityMngr->SetMass(5.0f, 0);
+	force = vector3(0.0f, 10.0f, -25.0f);
 
 	//m_pMeshMngr->AddPlaneToRenderList
 	//Ground
@@ -67,8 +81,7 @@ void Application::Display(void)
 	// draw a skybox
 	m_pMeshMngr->AddSkyboxToRenderList();
 
-	m_pMeshMngr->AddPlaneToRenderList(IDENTITY_M4, C_WHITE);
-	m_pMeshMngr->AddSphereToRenderList(IDENTITY_M4, C_CYAN);
+	
 
 	//render list call
 	m_uRenderCallCount = m_pMeshMngr->Render();

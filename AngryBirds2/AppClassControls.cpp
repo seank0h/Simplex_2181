@@ -94,20 +94,48 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::R:
 		
 		bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
-		SafeDelete(bird);
+		
 			break;
 	case sf::Keyboard::F:
-		
+	
 		m_pCameraMngr->SetTarget(vector3(bird->GetPosition()));
+		
+		//m_pCameraMngr->SetPositionTargetAndUpward(vector3(bird->GetPosition()), vector3(bird->GetPosition()),vector3(0.0f,1.0f,0.0f),-1);
 		break;
 	case sf::Keyboard::Num1:
-		force = vector3(0.0f,10.0f, 50.0f);
 		bird->ApplyForce(force);
 	case sf::Keyboard::RShift:
 		m_bModifier = true;
 		break;
+	case sf::Keyboard::X:
+		force.x += 5;
+		break;
+	case sf::Keyboard::Y:
+		force.y += 5;
+		break;
+	case sf::Keyboard::Z:
+		force.z += 5;
+		break;
+	case sf::Keyboard::B:
+		if (force.x > 0)
+		{
+			force.x -= 5;
+		}
+		break;
+	case sf::Keyboard::N:
+		if (force.y > 0)
+		{
+			force.y -= 5;
+		}
+		break;
+	case sf::Keyboard::M:
+		if (force.z > 0)
+		{
+			force.z -= 5;
+		}
+		break;
 	}
-
+	
 	//gui
 	gui.io.KeysDown[a_event.key.code] = true;
 	gui.io.KeyCtrl = a_event.key.control;
@@ -329,28 +357,38 @@ void Application::ArcBall(float a_fSensitivity)
 
 	//Calculate the difference in position and update the quaternion orientation based on it
 	float DeltaMouse;
+	float fAngleX = 0.0f;
+	float fAngleY = 0.0f;
 	if (MouseX < CenterX)
 	{
 		DeltaMouse = static_cast<float>(CenterX - MouseX);
 		m_qArcBall = quaternion(vector3(0.0f, glm::radians(a_fSensitivity * DeltaMouse), 0.0f)) * m_qArcBall;
+		fAngleY += DeltaMouse * a_fSensitivity;
+		
 	}
 	else if (MouseX > CenterX)
 	{
 		DeltaMouse = static_cast<float>(MouseX - CenterX);
 		m_qArcBall = quaternion(vector3(0.0f, glm::radians(-a_fSensitivity * DeltaMouse), 0.0f)) * m_qArcBall;
+		fAngleY -= DeltaMouse * a_fSensitivity;
 	}
 
 	if (MouseY < CenterY)
 	{
 		DeltaMouse = static_cast<float>(CenterY - MouseY);
 		m_qArcBall = quaternion(vector3(glm::radians(-a_fSensitivity * DeltaMouse), 0.0f, 0.0f)) * m_qArcBall;
+		fAngleX += DeltaMouse * a_fSensitivity;
 	}
 	else if (MouseY > CenterY)
 	{
 		DeltaMouse = static_cast<float>(MouseY - CenterY);
 		m_qArcBall = quaternion(vector3(glm::radians(a_fSensitivity * DeltaMouse), 0.0f, 0.0f)) * m_qArcBall;
+		fAngleX -= DeltaMouse * a_fSensitivity;
 	}
-
+	
+	
+	std::cout << "AngleX " << angleLaunch.x << std::endl;
+	std::cout << "AngleY " << angleLaunch.y << std::endl;
 	SetCursorPos(CenterX, CenterY);//Position the mouse in the center
 								   //return qArcBall; // return the new quaternion orientation
 }
@@ -373,13 +411,15 @@ void Application::CameraRotation(float a_fSpeed)
 	MouseY = pt.y;
 
 	//Calculate the difference in view with the angle
-	float fAngleX = 0.0f;
-	float fAngleY = 0.0f;
+	fAngleX = 0.0f;
+	fAngleY = 0.0f;
+
 	float fDeltaMouse = 0.0f;
 	if (MouseX < CenterX)
 	{
 		fDeltaMouse = static_cast<float>(CenterX - MouseX);
 		fAngleY += fDeltaMouse * a_fSpeed;
+		std::cout << "MouseY: " << fAngleY << std::endl;
 	}
 	else if (MouseX > CenterX)
 	{
@@ -396,11 +436,13 @@ void Application::CameraRotation(float a_fSpeed)
 	{
 		fDeltaMouse = static_cast<float>(MouseY - CenterY);
 		fAngleX += fDeltaMouse * a_fSpeed;
+		
 	}
 	//Change the Yaw and the Pitch of the camera
 	m_pCameraMngr->ChangeYaw(fAngleY * 0.25f);
 	m_pCameraMngr->ChangePitch(-fAngleX * 0.25f);
 	SetCursorPos(CenterX, CenterY);//Position the mouse in the center
+
 }
 //Keyboard
 void Application::ProcessKeyboard(void)
@@ -441,6 +483,8 @@ void Application::ProcessKeyboard(void)
 
 #pragma region Character Position
 	float fDelta = m_pSystem->GetDeltaTime(0);
+
+	/*
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		m_pEntityMngr->ApplyForce(vector3(-2.0f * fDelta, 0.0f, 0.0f), "Steve");
@@ -460,6 +504,7 @@ void Application::ProcessKeyboard(void)
 	{
 		m_pEntityMngr->ApplyForce(vector3(0.0f, 0.0f, 2.0f * fDelta), "Steve");
 	}
+	*/
 #pragma endregion
 }
 //Joystick

@@ -317,6 +317,16 @@ void Simplex::MyEntity::ResolveCollision(MyEntity* a_pOther)
 	if (m_bUsePhysicsSolver)
 	{
 		m_pSolver->ResolveCollision(a_pOther->GetSolver());
+		//std::cout << GetUniqueID() << std::endl;
+		if (GetUniqueID() == "Sun")
+		{
+			ApplyForce(-(m_pSolver->GetVelocity() * 2.0f));
+			a_pOther->ApplyForce(m_pSolver->GetVelocity() / 2.0f);
+		}
+		else {
+			SetVelocity(vector3(0));
+			m_pSolver->ResolveCollision(a_pOther->GetSolver());
+		}
 	}
 }
 void Simplex::MyEntity::UsePhysicsSolver(bool a_bUse)

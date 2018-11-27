@@ -178,9 +178,17 @@ void Simplex::MyEntityManager::Update(void)
 	{
 		for (uint j = i + 1; j < m_uEntityCount; j++)
 		{
+			if (m_mEntityArray[i]->IsColliding(m_mEntityArray[j]) && m_mEntityArray[i]->GetUniqueID() == "Sun")
+			{
+				std::cout << "MUST DELETE OBJECT PLEASE NOW I BEG PLEASE" << std::endl;
+				//RemoveEntity(j);
+				std::cout << m_uEntityCount << std::endl;
+			}
 			//if objects are colliding resolve the collision
+
 			if (m_mEntityArray[i]->IsColliding(m_mEntityArray[j]))
 			{
+				//std::cout << m_mEntityArray[i]->GetUniqueID() << std::endl;
 				m_mEntityArray[i]->ResolveCollision(m_mEntityArray[j]);
 			}
 		}
