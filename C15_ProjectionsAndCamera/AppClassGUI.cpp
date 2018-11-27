@@ -38,7 +38,10 @@ void Application::DrawGUI(void)
 			ImGui::Text("	 F2: Orthographic X\n");
 			ImGui::Text("	 F3: Orthographic Y\n");
 			ImGui::Text("	 F4: Orthographic Z\n");
-
+			ImGui::Text("Force for Launch of Bird");
+			ImGui::Text("50N");
+			ImGui::Text("100N");
+			ImGui::Text("150N");
 		}
 		ImGui::End();
 	}

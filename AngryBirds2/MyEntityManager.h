@@ -18,6 +18,7 @@ namespace Simplex
 		PEntity* m_mEntityArray = nullptr; //array of MyEntity pointers
 		static MyEntityManager* m_pInstance; // Singleton pointer
 	public:
+		
 		/*
 		Usage: Gets the singleton pointer
 		Arguments: ---

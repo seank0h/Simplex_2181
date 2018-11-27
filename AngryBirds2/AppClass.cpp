@@ -10,7 +10,9 @@ void Application::InitVariables(void)
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light (0 is reserved for ambient light)
 
-	m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve");
+	m_pEntityMngr->AddEntity("Planets\\Sun.obj", "Sun");
+	m_pEntityMngr->SetMass(5.0f, 0);
+	bird = m_pEntityMngr->GetEntity(0);
 	m_pEntityMngr->UsePhysicsSolver();
 
 	//m_pMeshMngr->AddPlaneToRenderList

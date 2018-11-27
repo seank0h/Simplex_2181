@@ -1,4 +1,7 @@
 #include "AppClass.h"
+#include "MyEntityManager.h"
+#include "Definitions.h"
+#include "MyEntity.h"
 using namespace Simplex;
 //Mouse
 void Application::ProcessMouseMovement(sf::Event a_event)
@@ -76,6 +79,30 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		m_pEntityMngr->ApplyForce(vector3(0.0f, 1.0f, 0.0f), "Steve");
 		break;
 	case sf::Keyboard::LShift:
+		for (size_t i = 0; i < 10; i++)
+		{
+			yIncrement = 0;
+			m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
+			vector3 v3Position = vector3(glm::sphericalRand(12.0f));
+			v3Position.y = yIncrement;
+			v3Position.z = -40.0f;
+			matrix4 m4Position = glm::translate(v3Position);
+			m_pEntityMngr->SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
+			m_pEntityMngr->UsePhysicsSolver();
+		}
+		break;
+	case sf::Keyboard::R:
+		
+		bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
+		SafeDelete(bird);
+			break;
+	case sf::Keyboard::F:
+		
+		m_pCameraMngr->SetTarget(vector3(bird->GetPosition()));
+		break;
+	case sf::Keyboard::Num1:
+		force = vector3(0.0f,10.0f, 50.0f);
+		bird->ApplyForce(force);
 	case sf::Keyboard::RShift:
 		m_bModifier = true;
 		break;
