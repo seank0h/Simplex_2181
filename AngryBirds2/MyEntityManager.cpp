@@ -181,7 +181,7 @@ void Simplex::MyEntityManager::Update(void)
 			if (m_mEntityArray[i]->IsColliding(m_mEntityArray[j]) && m_mEntityArray[i]->GetUniqueID() == "Sun")
 			{
 				std::cout << "MUST DELETE OBJECT PLEASE NOW I BEG PLEASE" << std::endl;
-				//RemoveEntity(j);
+				m_mEntityArray[j]->deleteThis = true; //let this contacted object's deletion counter start incrementing
 				std::cout << m_uEntityCount << std::endl;
 			}
 			//if objects are colliding resolve the collision
@@ -194,6 +194,9 @@ void Simplex::MyEntityManager::Update(void)
 		}
 		//Update each entity
 		m_mEntityArray[i]->Update();
+		//if an entity has been marked for deletion and its counter has exceeded a specified amount, delete it
+		if (m_mEntityArray[i]->deletionCounter >= 300)
+			RemoveEntity(i);
 	}
 }
 void Simplex::MyEntityManager::AddEntity(String a_sFileName, String a_sUniqueID)

@@ -311,6 +311,11 @@ void Simplex::MyEntity::Update(void)
 		m_pSolver->Update();
 		SetModelMatrix(glm::translate(m_pSolver->GetPosition()) * glm::scale(m_pSolver->GetSize()));
 	}
+	//if this object is marked for deletion, increment the deletioncounter every update (replace with something that relies on an internal clock later)
+	if (deleteThis)
+	{
+		deletionCounter++;
+	}
 }
 void Simplex::MyEntity::ResolveCollision(MyEntity* a_pOther)
 {

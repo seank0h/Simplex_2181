@@ -30,6 +30,12 @@ namespace Simplex
 		MySolver* m_pSolver = nullptr; //Physics MySolver
 
 	public:
+		//variable to determine whether or not this object is slated for deletion
+		bool deleteThis = false;
+
+		//counter for determining when to delete this object
+		uint deletionCounter = 0;
+
 		/*
 		Usage: Constructor that specifies the name attached to the MyEntity
 		Arguments:
