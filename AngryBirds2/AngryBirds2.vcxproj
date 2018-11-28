@@ -14,7 +14,7 @@
     <ProjectGuid>{4A1C47F7-9EF5-4619-A2A9-54D9F960C1B0}</ProjectGuid>
     <RootNamespace>AngryBirds2</RootNamespace>
     <ProjectName>AngryBirds2</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

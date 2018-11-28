@@ -52,6 +52,7 @@ void Application::DrawGUI(void)
 			ImGui::Text("	 F4: Orthographic Z\n");
 			ImGui::Text("	 Hold F to follow projectile");
 			ImGui::Separator();
+			ImGui::Text("Press LShift to insantiate blocks");
 			ImGui::Text("1: Launch Projectile");
 			ImGui::Text("Press the Corresponding Letters to increase the variable");
 			ImGui::Text("Force Vector X:%i", (int)force.x);
