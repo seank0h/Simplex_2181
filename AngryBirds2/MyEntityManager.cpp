@@ -539,7 +539,7 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 		for (GLuint z = 0; z < 10; z++)
 		{
 			xIncrement = x * 2;
-			zIncrement = z * 2;
+			zIncrement = 30 + (z * 2);
 			AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
 			vector3 v3Position = vector3(0.0f);
 			v3Position.z = zIncrement;
@@ -549,11 +549,38 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 			SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
 			//UsePhysicsSolver();
 
-			if ((x < 3|| x > 6) && (z < 3 || z > 6))
+			
+			for (GLuint y = 0; y < 6; y++)
 			{
-				for (GLuint y = 0; y < 6; y++)
+				if ((x < 3 || x > 6) && (z < 3 || z > 6))
+				{
+					if (y < 6)
+					{
+						yIncrement = y * 2;
+						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+						vector3 secondv3Position = vector3(0.0f);
+						secondv3Position.z = zIncrement;
+						secondv3Position.x = xIncrement;
+						secondv3Position.y = yIncrement;
+						matrix4 secondm4Position = glm::translate(secondv3Position);
+						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+					}
+					else if ((x % 2 != 0 && z < 1) || z % 2 != 0)
+					{
+						yIncrement = y * 2;
+						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+						vector3 secondv3Position = vector3(0.0f);
+						secondv3Position.z = zIncrement;
+						secondv3Position.x = xIncrement;
+						secondv3Position.y = yIncrement;
+						matrix4 secondm4Position = glm::translate(secondv3Position);
+						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+					}
+				}
+				else if ( y < 5 && (x == 0 || x == 9 || z == 0 || z == 9))
 				{
 					yIncrement = y * 2;
+					AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
 					vector3 secondv3Position = vector3(0.0f);
 					secondv3Position.z = zIncrement;
 					secondv3Position.x = xIncrement;
