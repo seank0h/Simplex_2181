@@ -528,3 +528,50 @@ void Simplex::MyEntityManager::UsePhysicsSolver(bool a_bUse, uint a_uIndex)
 
 	return m_mEntityArray[a_uIndex]->UsePhysicsSolver(a_bUse);
 }
+void Simplex::MyEntityManager::CreateSmallCastle()
+{
+	int yIncrement = 0;
+	int xIncrement = 0;
+	int zIncrement = 30;
+
+	for (GLuint x = 0; x < 10; x++)
+	{
+		for (GLuint z = 0; z < 10; z++)
+		{
+			xIncrement = x * 2;
+			zIncrement = z * 2;
+			AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+			vector3 v3Position = vector3(0.0f);
+			v3Position.z = zIncrement;
+			v3Position.x = xIncrement;
+			v3Position.y = 0;
+			matrix4 m4Position = glm::translate(v3Position);
+			SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
+			//UsePhysicsSolver();
+
+			if ((x < 3|| x > 6) && (z < 3 || z > 6))
+			{
+				for (GLuint y = 0; y < 6; y++)
+				{
+					yIncrement = y * 2;
+					vector3 secondv3Position = vector3(0.0f);
+					secondv3Position.z = zIncrement;
+					secondv3Position.x = xIncrement;
+					secondv3Position.y = yIncrement;
+					matrix4 secondm4Position = glm::translate(secondv3Position);
+					SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+				}
+			}
+		}
+	}
+}
+void Simplex::MyEntityManager::CreateMediumCastle()
+{
+
+}
+
+void Simplex::MyEntityManager::CreateLargeCastle()
+{
+
+}
+

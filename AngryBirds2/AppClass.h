@@ -18,6 +18,7 @@ namespace Simplex
 	//Adding Application to the Simplex namespace
 	class Application
 	{
+		Model* m_pModel = nullptr;
 		MyEntityManager* m_pEntityMngr = nullptr; //Entity Manager
 	private:
 		String m_sProgrammer = "Sean Koh, Kevin Lin, Tadeo Menichelli, Nicholas Mercadante"; //programmer
