@@ -58,6 +58,12 @@ namespace Simplex
 		*/
 		void RemoveEntity(String a_sUniqueID);
 		/*
+		USAGE: Deletes the MyEntity Specified by unique ID and removes it from the list
+		ARGUMENTS: String a_sUniqueID -> Unique Identifier
+		OUTPUT: ---
+		*/
+		void RemoveAllEntities();
+		/*
 		USAGE: Gets the uniqueID name of the entity indexed
 		ARGUMENTS: uint a_uIndex = -1 -> index of the queried entry, if < 0 asks for the last one added
 		OUTPUT: UniqueID of the entity, if the list is empty will return blank

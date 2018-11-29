@@ -266,6 +266,13 @@ void Simplex::MyEntityManager::RemoveEntity(String a_sUniqueID)
 	int nIndex = GetEntityIndex(a_sUniqueID);
 	RemoveEntity((uint)nIndex);
 }
+void Simplex::MyEntityManager::RemoveAllEntities()
+{
+	for (GLuint i = 0; i < GetEntityCount(); i++)
+	{
+		RemoveEntity(i);
+	}
+}
 Simplex::String Simplex::MyEntityManager::GetUniqueID(uint a_uIndex)
 {
 	//if the list is empty return

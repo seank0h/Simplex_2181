@@ -95,7 +95,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		
 		bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
 		
-			break;
+		break;
 	case sf::Keyboard::F:
 	
 		m_pCameraMngr->SetTarget(vector3(bird->GetPosition()));
