@@ -20,7 +20,9 @@ void Application::InitVariables(void)
 	//bird = m_pEntityMngr->GetEntity(0);
 	//m_pEntityMngr->UsePhysicsSolver();
 
-	m_pEntityMngr->CreateSmallCastle();
+	//m_pEntityMngr->CreateSmallCastle();
+	//m_pEntityMngr->CreateMediumCastle();
+	m_pEntityMngr->CreateLargeCastle();
 	
 
 	m_pEntityMngr->SetMass(5.0f, 0);

@@ -534,12 +534,13 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 	int xIncrement = 0;
 	int zIncrement = 30;
 
-	for (GLuint x = 0; x < 10; x++)
+	// first two for loops determines the length and width of the tower
+	for (GLuint length = 0; length < 9; length++)
 	{
-		for (GLuint z = 0; z < 10; z++)
+		for (GLuint width = 0; width < 9; width++)
 		{
-			xIncrement = x * 2;
-			zIncrement = 30 + (z * 2);
+			xIncrement = length * 2;
+			zIncrement = 30 + (width * 2);
 			AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
 			vector3 v3Position = vector3(0.0f);
 			v3Position.z = zIncrement;
@@ -550,13 +551,15 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 			//UsePhysicsSolver();
 
 			
-			for (GLuint y = 0; y < 6; y++)
+			for (GLuint height = 0; height < 6; height++)
 			{
-				if ((x < 3 || x > 6) && (z < 3 || z > 6))
+				// makes the towers specifically at the edges of the castle
+				if ((length < 3 || length > 5) && (width < 3 || width > 5))
 				{
-					if (y < 6)
+					// makes the base of the towers
+					if (height < 5)
 					{
-						yIncrement = y * 2;
+						yIncrement = height * 2;
 						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
 						vector3 secondv3Position = vector3(0.0f);
 						secondv3Position.z = zIncrement;
@@ -564,10 +567,12 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 						secondv3Position.y = yIncrement;
 						matrix4 secondm4Position = glm::translate(secondv3Position);
 						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+						//UsePhysicsSolver();
 					}
-					else if ((x % 2 != 0 && z < 1) || z % 2 != 0)
+					// makes the top part of each tower
+					else if ((length % 2 == 0 && (width == 0 || width == 8)) || (width % 2 == 0 && (length == 0 || length == 8)))
 					{
-						yIncrement = y * 2;
+						yIncrement = height * 2;
 						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
 						vector3 secondv3Position = vector3(0.0f);
 						secondv3Position.z = zIncrement;
@@ -575,11 +580,13 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 						secondv3Position.y = yIncrement;
 						matrix4 secondm4Position = glm::translate(secondv3Position);
 						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+						//UsePhysicsSolver();
 					}
 				}
-				else if ( y < 5 && (x == 0 || x == 9 || z == 0 || z == 9))
+				// makes the wall
+				else if ( height < 4 && (length == 0 || length == 8 || width == 0 || width == 8))
 				{
-					yIncrement = y * 2;
+					yIncrement = height * 2;
 					AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
 					vector3 secondv3Position = vector3(0.0f);
 					secondv3Position.z = zIncrement;
@@ -587,6 +594,7 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 					secondv3Position.y = yIncrement;
 					matrix4 secondm4Position = glm::translate(secondv3Position);
 					SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+					//UsePhysicsSolver();
 				}
 			}
 		}
@@ -594,11 +602,147 @@ void Simplex::MyEntityManager::CreateSmallCastle()
 }
 void Simplex::MyEntityManager::CreateMediumCastle()
 {
+	int yIncrement = 0;
+	int xIncrement = 0;
+	int zIncrement = 30;
 
+	// first two for loops determines the length and width of the tower, third is the height
+	for (GLuint length = 0; length < 15; length++)
+	{
+		for (GLuint width = 0; width < 15; width++)
+		{
+			xIncrement = length * 2;
+			zIncrement = 30 + (width * 2);
+			AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+			vector3 v3Position = vector3(0.0f);
+			v3Position.z = zIncrement;
+			v3Position.x = xIncrement;
+			v3Position.y = 0;
+			matrix4 m4Position = glm::translate(v3Position);
+			SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
+			//UsePhysicsSolver();
+
+
+			for (GLuint height = 0; height < 8; height++)
+			{
+				// makes the towers specifically at the edges of the castle
+				if ((length < 4 || length > 10) && (width < 4 || width > 10))
+				{
+					// makes the base of the towers
+					if (height < 7)
+					{
+						yIncrement = height * 2;
+						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+						vector3 secondv3Position = vector3(0.0f);
+						secondv3Position.z = zIncrement;
+						secondv3Position.x = xIncrement;
+						secondv3Position.y = yIncrement;
+						matrix4 secondm4Position = glm::translate(secondv3Position);
+						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+						//UsePhysicsSolver();
+					}
+					// makes the top part of each tower
+					else if ((length % 2 != 0 && (width == 0 || width == 14)) || (width % 2 != 0 && (length == 0 || length == 14)))
+					{
+						yIncrement = height * 2;
+						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+						vector3 secondv3Position = vector3(0.0f);
+						secondv3Position.z = zIncrement;
+						secondv3Position.x = xIncrement;
+						secondv3Position.y = yIncrement;
+						matrix4 secondm4Position = glm::translate(secondv3Position);
+						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+						//UsePhysicsSolver();
+					}
+				}
+				// makes the wall
+				else if (height < 5 && (length == 0 || length == 14 || width == 0 || width == 14))
+				{
+					yIncrement = height * 2;
+					AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+					vector3 secondv3Position = vector3(0.0f);
+					secondv3Position.z = zIncrement;
+					secondv3Position.x = xIncrement;
+					secondv3Position.y = yIncrement;
+					matrix4 secondm4Position = glm::translate(secondv3Position);
+					SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+					//UsePhysicsSolver();
+				}
+			}
+		}
+	}
 }
 
 void Simplex::MyEntityManager::CreateLargeCastle()
 {
+	int yIncrement = 0;
+	int xIncrement = 0;
+	int zIncrement = 30;
 
+	// first two for loops determines the length and width of the tower, third is the height
+	for (GLuint length = 0; length < 21; length++)
+	{
+		for (GLuint width = 0; width < 21; width++)
+		{
+			xIncrement = length * 2;
+			zIncrement = 30 + (width * 2);
+			AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+			vector3 v3Position = vector3(0.0f);
+			v3Position.z = zIncrement;
+			v3Position.x = xIncrement;
+			v3Position.y = 0;
+			matrix4 m4Position = glm::translate(v3Position);
+			SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
+			//UsePhysicsSolver();
+
+
+			for (GLuint height = 0; height < 11; height++)
+			{
+				// makes the towers specifically at the edges of the castle
+				if ((length < 5 || length > 15) && (width < 5 || width > 15))
+				{
+					// makes the base of the towers
+					if (height < 10)
+					{
+						yIncrement = height * 2;
+						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+						vector3 secondv3Position = vector3(0.0f);
+						secondv3Position.z = zIncrement;
+						secondv3Position.x = xIncrement;
+						secondv3Position.y = yIncrement;
+						matrix4 secondm4Position = glm::translate(secondv3Position);
+						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+						//UsePhysicsSolver();
+					}
+					// makes the top part of each tower
+					else if ((length % 2 == 0 && (width == 0 || width == 20)) || (width % 2 == 0 && (length == 0 || length == 20)))
+					{
+						yIncrement = height * 2;
+						AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+						vector3 secondv3Position = vector3(0.0f);
+						secondv3Position.z = zIncrement;
+						secondv3Position.x = xIncrement;
+						secondv3Position.y = yIncrement;
+						matrix4 secondm4Position = glm::translate(secondv3Position);
+						SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+						//UsePhysicsSolver();
+					}
+				}
+				// makes the wall
+				else if (height < 8 && (length == 0 || length == 20 || width == 0 || width == 20))
+				{
+					yIncrement = height * 2;
+					AddEntity("Minecraft\\Cube.obj", "Block_" + std::to_string(GetEntityCount()));
+					vector3 secondv3Position = vector3(0.0f);
+					secondv3Position.z = zIncrement;
+					secondv3Position.x = xIncrement;
+					secondv3Position.y = yIncrement;
+					matrix4 secondm4Position = glm::translate(secondv3Position);
+					SetModelMatrix(secondm4Position * glm::scale(vector3(2.0f)));
+					//UsePhysicsSolver();
+				}
+			}
+		}
+	}
 }
 

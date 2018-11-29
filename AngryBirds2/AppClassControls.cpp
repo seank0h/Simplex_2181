@@ -79,7 +79,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		m_pEntityMngr->ApplyForce(vector3(0.0f, 1.0f, 0.0f), "Steve");
 		break;
 	case sf::Keyboard::LShift:
-		for (size_t i = 0; i < 10; i++)
+		for (size_t i = 0; i < 0; i++)
 		{
 			yIncrement = 0;
 			m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
