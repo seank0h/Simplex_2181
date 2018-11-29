@@ -312,6 +312,24 @@ namespace Simplex
 		OUTPUT: ---
 		*/
 		void UsePhysicsSolver(bool a_bUse = true, uint a_uIndex = -1);
+		/*
+		USAGE: Create Large castle
+		ARGUMENTS: ---
+		OUTPUT: ---
+		*/
+		void CreateLargeCastle();
+		/*
+		USAGE:  Create medium castle
+		ARGUMENTS: ---
+		OUTPUT: ---
+		*/
+		void CreateMediumCastle();
+		/*
+		USAGE: Create small castle
+		ARGUMENTS: ---
+		OUTPUT: ---
+		*/
+		void CreateSmallCastle();
 	private:
 		/*
 		Usage: constructor
