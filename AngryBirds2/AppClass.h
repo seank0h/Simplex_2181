@@ -64,8 +64,12 @@ namespace Simplex
 		float fAngleX;
 		float fAngleY;
 	public:
+		uint cameraIndex;
 		MyEntity * bird;
 		vector3 force;
+		vector3 birdLoc;
+		bool cameraSwitch;
+		Camera* birdCam=nullptr;
 #pragma region Constructor / Run / Destructor
 		/*
 		USAGE: Constructor

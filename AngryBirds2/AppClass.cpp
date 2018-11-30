@@ -50,6 +50,7 @@ void Application::InitVariables(void)
 		//m_pEntityMngr->SetMass(i+1);
 	}
 	*/
+	cameraIndex = m_pCameraMngr->AddCamera(vector3(0,5.0,25.0f),vector3(0,0,0),AXIS_Y);
 }
 void Application::Update(void)
 {
@@ -64,11 +65,22 @@ void Application::Update(void)
 
 	//Update Entity Manager
 	m_pEntityMngr->Update();
-
+	birdLoc = bird->GetPosition();
+	
 	//Set the model matrix for the main object
 	//m_pEntityMngr->SetModelMatrix(m_m4Steve, "Steve");
 
 	//Add objects to render list
+	if (cameraSwitch)
+	{
+		birdCam = m_pCameraMngr->GetCamera(cameraIndex);
+		birdCam->SetTarget(birdLoc);
+		m_pCameraMngr->SetActiveCamera(cameraIndex);
+	}
+	else
+	{
+		m_pCameraMngr->SetActiveCamera(0);
+	}
 	m_pEntityMngr->AddEntityToRenderList(-1, true);
 	//m_pEntityMngr->AddEntityToRenderList(-1, true);
 }
