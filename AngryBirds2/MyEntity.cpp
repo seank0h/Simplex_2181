@@ -327,6 +327,7 @@ void Simplex::MyEntity::ResolveCollision(MyEntity* a_pOther)
 		{
 			ApplyForce(-(m_pSolver->GetVelocity() * 2.0f));
 			a_pOther->ApplyForce(m_pSolver->GetVelocity() / 2.0f);
+			a_pOther->UsePhysicsSolver();
 		}
 		else {
 			SetVelocity(vector3(0));
