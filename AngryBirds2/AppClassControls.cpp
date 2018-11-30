@@ -98,7 +98,8 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		break;
 	case sf::Keyboard::F:
 	
-		m_pCameraMngr->SetTarget(vector3(bird->GetPosition()));
+		cameraSwitch = !cameraSwitch;
+		
 		
 		//m_pCameraMngr->SetPositionTargetAndUpward(vector3(bird->GetPosition()), vector3(bird->GetPosition()),vector3(0.0f,1.0f,0.0f),-1);
 		break;

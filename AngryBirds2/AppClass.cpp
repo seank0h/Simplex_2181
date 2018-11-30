@@ -16,13 +16,13 @@ void Application::InitVariables(void)
 	
 	//m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
 
-	//m_pEntityMngr->AddEntity("Planets\\00_Sun.obj", "Sun");
-	//bird = m_pEntityMngr->GetEntity(0);
-	//m_pEntityMngr->UsePhysicsSolver();
+	m_pEntityMngr->AddEntity("Planets\\00_Sun.obj", "Sun");
+	bird = m_pEntityMngr->GetEntity(0);
+	m_pEntityMngr->UsePhysicsSolver();
 
-	//m_pEntityMngr->CreateSmallCastle();
+	m_pEntityMngr->CreateSmallCastle();
 	//m_pEntityMngr->CreateMediumCastle();
-	m_pEntityMngr->CreateLargeCastle();
+	//m_pEntityMngr->CreateLargeCastle();
 	
 
 	m_pEntityMngr->SetMass(5.0f, 0);
@@ -50,6 +50,7 @@ void Application::InitVariables(void)
 		//m_pEntityMngr->SetMass(i+1);
 	}
 	*/
+	cameraIndex = m_pCameraMngr->AddCamera(vector3(0,5.0,25.0f),vector3(0,0,0),AXIS_Y);
 }
 void Application::Update(void)
 {
@@ -64,11 +65,22 @@ void Application::Update(void)
 
 	//Update Entity Manager
 	m_pEntityMngr->Update();
-
+	birdLoc = bird->GetPosition();
+	
 	//Set the model matrix for the main object
 	//m_pEntityMngr->SetModelMatrix(m_m4Steve, "Steve");
 
 	//Add objects to render list
+	if (cameraSwitch)
+	{
+		birdCam = m_pCameraMngr->GetCamera(cameraIndex);
+		birdCam->SetTarget(birdLoc);
+		m_pCameraMngr->SetActiveCamera(cameraIndex);
+	}
+	else
+	{
+		m_pCameraMngr->SetActiveCamera(0);
+	}
 	m_pEntityMngr->AddEntityToRenderList(-1, true);
 	//m_pEntityMngr->AddEntityToRenderList(-1, true);
 }
