@@ -2,7 +2,6 @@
 #include "MyEntityManager.h"
 #include "Definitions.h"
 #include "MyEntity.h"
-#include "MyOctant.h"
 using namespace Simplex;
 //Mouse
 void Application::ProcessMouseMovement(sf::Event a_event)
@@ -80,7 +79,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		m_pEntityMngr->ApplyForce(vector3(0.0f, 1.0f, 0.0f), "Steve");
 		break;
 	case sf::Keyboard::LShift:
-		for (size_t i = 0; i < 0; i++)
+		for (size_t i = 0; i < 10; i++)
 		{
 			yIncrement = 0;
 			m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
@@ -96,11 +95,10 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		
 		bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
 		
-		break;
+			break;
 	case sf::Keyboard::F:
 	
-		cameraSwitch = !cameraSwitch;
-		
+		m_pCameraMngr->SetTarget(vector3(bird->GetPosition()));
 		
 		//m_pCameraMngr->SetPositionTargetAndUpward(vector3(bird->GetPosition()), vector3(bird->GetPosition()),vector3(0.0f,1.0f,0.0f),-1);
 		break;
@@ -136,60 +134,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			force.z -= 5;
 		}
 		break;
-	case sf::Keyboard::O:
-		
-		
-		MyOctant* root;
-		uint maxLevel = 2;
-		root = new MyOctant(maxLevel, 5);
-
-		if (optimizeSwitch == false)
-		{
-			SafeDelete(root);
-
-		}
-		optimizeSwitch = !optimizeSwitch;
-		break;
-		/*
-	case sf::Keyboard::Add:
-		if (maxLevel < 4)
-		{
-			m_pEntityMngr->ClearDimensionSetAll();
-			++maxLevel;
-			SafeDelete(m_pRoot);
-			m_pRoot = new MyOctant(m_uOctantLevels, 5);
-			std::cout << "Add" << std::endl;
-		}
-		break;
-	case sf::Keyboard::Subtract:
-		if (maxLevel > 0)
-		{
-			m_pEntityMngr->ClearDimensionSetAll();
-			--maxLevel;
-
-			SafeDelete(m_pRoot);
-			m_pRoot = new MyOctant(m_uOctantLevels, 5);
-			std::cout << "Subtract" << std::endl;
-
-		}
-		break;
-	case sf::Keyboard::PageUp:
-		++octantID;
-
-		if (m_uOctantID >= m_pRoot->GetOctantCount())
-			m_uOctantID = -1;
-
-		break;
-	case sf::Keyboard::PageDown:
-		--m_uOctantID;
-
-		if (m_uOctantID >= m_pRoot->GetOctantCount())
-			m_uOctantID = -1;
-
-		break;
-		*/
 	}
-
 	
 	//gui
 	gui.io.KeysDown[a_event.key.code] = true;

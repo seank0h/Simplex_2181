@@ -18,7 +18,6 @@ namespace Simplex
 	//Adding Application to the Simplex namespace
 	class Application
 	{
-		Model* m_pModel = nullptr;
 		MyEntityManager* m_pEntityMngr = nullptr; //Entity Manager
 	private:
 		String m_sProgrammer = "Sean Koh, Kevin Lin, Tadeo Menichelli, Nicholas Mercadante"; //programmer
@@ -64,13 +63,8 @@ namespace Simplex
 		float fAngleX;
 		float fAngleY;
 	public:
-		uint cameraIndex;
 		MyEntity * bird;
 		vector3 force;
-		vector3 birdLoc;
-		bool cameraSwitch;
-		bool optimizeSwitch;
-		Camera* birdCam=nullptr;
 #pragma region Constructor / Run / Destructor
 		/*
 		USAGE: Constructor

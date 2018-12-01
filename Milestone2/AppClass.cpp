@@ -1,5 +1,4 @@
 #include "AppClass.h"
-#include "MyOctant.h"
 using namespace Simplex;
 void Application::InitVariables(void)
 {
@@ -11,20 +10,22 @@ void Application::InitVariables(void)
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light (0 is reserved for ambient light)
 
-	
-	m_pModel = new Model();
-	m_pModel->Load("Minecraft\\Steve.obj");
-	
-	//m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
-
 	m_pEntityMngr->AddEntity("Planets\\00_Sun.obj", "Sun");
 	bird = m_pEntityMngr->GetEntity(0);
 	m_pEntityMngr->UsePhysicsSolver();
-	bird->SetMass(100.0f);
-	//m_pEntityMngr->CreateSmallCastle();
-	//m_pEntityMngr->CreateMediumCastle();
-	m_pEntityMngr->CreateLargeCastle();
-	optimizeSwitch = true;
+	for (size_t i = 0; i < 2; i++)
+	{
+		yIncrement += 5;
+		m_pEntityMngr->AddEntity("Minecraft\\Cube.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
+		vector3 v3Position = vector3(glm::sphericalRand(12.0f));
+		v3Position.y = yIncrement;
+		v3Position.z = 10.0f;
+		v3Position.x = 0.0f;
+		matrix4 m4Position = glm::translate(v3Position);
+		m_pEntityMngr->SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
+		m_pEntityMngr->UsePhysicsSolver();
+	}
+
 	m_pEntityMngr->SetMass(5.0f, 0);
 	force = vector3(0.0f, 10.0f, -25.0f);
 
@@ -50,8 +51,6 @@ void Application::InitVariables(void)
 		//m_pEntityMngr->SetMass(i+1);
 	}
 	*/
-	cameraIndex = m_pCameraMngr->AddCamera(vector3(0,5.0,25.0f),vector3(0,0,0),AXIS_Y);
-	m_pEntityMngr->Update();
 }
 void Application::Update(void)
 {
@@ -66,23 +65,11 @@ void Application::Update(void)
 
 	//Update Entity Manager
 	m_pEntityMngr->Update();
-	birdLoc = bird->GetPosition();
-	
+
 	//Set the model matrix for the main object
 	//m_pEntityMngr->SetModelMatrix(m_m4Steve, "Steve");
 
 	//Add objects to render list
-	if (cameraSwitch)
-	{
-		birdCam = m_pCameraMngr->GetCamera(cameraIndex);
-		birdCam->SetPosition(vector3(birdLoc.x, birdLoc.y, birdLoc.z - 30.0f));
-		birdCam->SetTarget(birdLoc);
-		m_pCameraMngr->SetActiveCamera(cameraIndex);
-	}
-	else
-	{
-		m_pCameraMngr->SetActiveCamera(0);
-	}
 	m_pEntityMngr->AddEntityToRenderList(-1, true);
 	//m_pEntityMngr->AddEntityToRenderList(-1, true);
 }
@@ -110,8 +97,6 @@ void Application::Display(void)
 }
 void Application::Release(void)
 {
-	SafeDelete(m_pModel);
-
 	//Release MyEntityManager
 	MyEntityManager::ReleaseInstance();
 
