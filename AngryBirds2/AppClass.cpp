@@ -74,6 +74,7 @@ void Application::Update(void)
 	if (cameraSwitch)
 	{
 		birdCam = m_pCameraMngr->GetCamera(cameraIndex);
+		birdCam->SetPosition(vector3(birdLoc.x, birdLoc.y, birdLoc.z - 30.0f));
 		birdCam->SetTarget(birdLoc);
 		m_pCameraMngr->SetActiveCamera(cameraIndex);
 	}
