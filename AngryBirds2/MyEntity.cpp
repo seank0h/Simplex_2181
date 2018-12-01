@@ -323,15 +323,21 @@ void Simplex::MyEntity::ResolveCollision(MyEntity* a_pOther)
 	{
 		m_pSolver->ResolveCollision(a_pOther->GetSolver());
 		//std::cout << GetUniqueID() << std::endl;
+		/// if this object is a sun, set a force, and if its not, simply user physicsSolver
 		if (GetUniqueID() == "Sun")
 		{
 			ApplyForce(-(m_pSolver->GetVelocity() * 2.0f));
 			a_pOther->ApplyForce(m_pSolver->GetVelocity() / 2.0f);
 			a_pOther->UsePhysicsSolver();
 		}
-		else {
+		else 
+		{
 			SetVelocity(vector3(0));
 			m_pSolver->ResolveCollision(a_pOther->GetSolver());
+			if (a_pOther->m_bUsePhysicsSolver == true || m_bUsePhysicsSolver == true)
+			{
+				UsePhysicsSolver();
+			}
 		}
 	}
 }
