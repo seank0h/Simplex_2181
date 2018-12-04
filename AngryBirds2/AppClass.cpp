@@ -4,10 +4,12 @@ using namespace Simplex;
 void Application::InitVariables(void)
 {
 	//set up the ortho camera to look at the castle+ball from the x axis
+	
 	//m_pCameraMngr->SetPositionTargetAndUpward(); //
 	//Set the position and target of the camera
 	m_pCameraMngr->SetCameraMode(CAM_ORTHO_X,0);					//Up
-
+	m_pCameraMngr->SetPosition(vector3(50.0f, 0.0f, 0.0f), 0);
+	m_pCameraMngr->SetUpward(AXIS_Y, 0);
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light (0 is reserved for ambient light)
 
 	
@@ -20,12 +22,13 @@ void Application::InitVariables(void)
 	bird = m_pEntityMngr->GetEntity(0);
 	m_pEntityMngr->UsePhysicsSolver();
 	bird->SetMass(100.0f);
-	//m_pEntityMngr->CreateSmallCastle();
+	bird->SetPosition(vector3(10.0f, 0.0f, 0.0f));
+	m_pEntityMngr->CreateSmallCastle();
 	//m_pEntityMngr->CreateMediumCastle();
-	m_pEntityMngr->CreateLargeCastle();
+	//m_pEntityMngr->CreateLargeCastle();
 	optimizeSwitch = true;
 	m_pEntityMngr->SetMass(5.0f, 0);
-	force = vector3(0.0f, 10.0f, -25.0f);
+	force = vector3(0.0f, 10.0f, 25.0f);
 
 	//m_pMeshMngr->AddPlaneToRenderList
 	//Ground
@@ -83,6 +86,10 @@ void Application::Update(void)
 	{
 		m_pCameraMngr->SetActiveCamera(0);
 	}
+	if (root != nullptr)
+	{
+		root->Display();
+	}
 	m_pEntityMngr->AddEntityToRenderList(-1, true);
 	//m_pEntityMngr->AddEntityToRenderList(-1, true);
 }
@@ -101,10 +108,7 @@ void Application::Display(void)
 
 	//clear the render list
 	m_pMeshMngr->ClearRenderList();
-	if (root!=nullptr)
-	{
-		root->Display();
-	}
+	
 	//draw gui,
 	DrawGUI();
 
@@ -115,10 +119,11 @@ void Application::Release(void)
 {
 	SafeDelete(m_pModel);
 	SafeDelete(birdCam);
-	SafeDelete(orthoZCam);
+	SafeDelete(root);
+	//SafeDelete(orthoZCam);
 	//Release MyEntityManager
 	MyEntityManager::ReleaseInstance();
-
+	m_pCameraMngr->ReleaseInstance();
 	//release GUI
 	ShutdownGUI();
 }

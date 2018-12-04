@@ -49,8 +49,8 @@ void Application::DrawGUI(void)
 			ImGui::Text("	 F1: Perspective\n");
 			ImGui::Text("	 F2: Orthographic X\n");
 			ImGui::Text("	 F3: Orthographic Y\n");
-			ImGui::Text("	 F4: Orthographic Z\n");
-			ImGui::Text("	 Hold F to follow projectile");
+			ImGui::Text("	 Press R to reset projectile to its original location");
+			ImGui::Text("	 Press F to have camera follow projectile");
 			ImGui::Separator();
 			ImGui::Text("Press LShift to insantiate blocks");
 			ImGui::Text("1: Launch Projectile");

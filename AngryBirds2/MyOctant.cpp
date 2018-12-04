@@ -59,7 +59,7 @@ MyOctant::MyOctant(uint a_nMaxLevel, uint a_nIdealEntityCount)
 
 	//Number of entites
 	uint entityCount = m_pEntityMngr->GetEntityCount();
-	for (size_t i = 0; i < entityCount; i++)
+	for (size_t i = 1; i < entityCount; i++)
 	{
 		//Creating pointers to all the entites
 		MyEntity* pEntity = m_pEntityMngr->GetEntity(i);
@@ -351,7 +351,7 @@ void MyOctant::AssignIDtoEntity(void)
 	{
 		//Getting Entity Count
 		uint entityCount = m_pEntityMngr->GetEntityCount();
-		for (size_t i = 0; i < entityCount; i++)
+		for (GLuint i = 0; i < entityCount; i++)
 		{
 			//Check collision between other entities
 			if (isColliding(i))
@@ -359,7 +359,17 @@ void MyOctant::AssignIDtoEntity(void)
 				//If True add the entity collided
 				m_EntityList.push_back(i);
 				//Increment dimension
-				m_pEntityMngr->AddDimension(i, octantID);
+				//std::cout << i << std::endl;
+				if (m_pEntityMngr->GetEntity(i)->GetUniqueID().find("Block_"))
+				{
+					m_pEntityMngr->AddDimension(i, octantID);
+				}
+				else if (m_pEntityMngr->GetEntity(i)->GetUniqueID().find("Sun"))
+				{
+					
+					m_pEntityMngr->AddDimension(i, octantID);
+				}
+				
 			}
 		}
 	}

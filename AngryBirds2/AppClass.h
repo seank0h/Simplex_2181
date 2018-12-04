@@ -75,7 +75,7 @@ namespace Simplex
 		bool cameraSwitch;
 		bool optimizeSwitch;
 		Camera* birdCam=nullptr;
-		Camera* orthoZCam = nullptr;
+		Camera* orthoXCam = nullptr;
 		uint orthCamIndex;
 #pragma region Constructor / Run / Destructor
 		/*

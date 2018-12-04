@@ -100,19 +100,18 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		m_bModifier = true;
 		break;
 	case sf::Keyboard::X:
-		force.x += 5;
+		force.x += 1;
 		break;
 	case sf::Keyboard::Y:
 		force.y += 5;
 		break;
 	case sf::Keyboard::Z:
-		force.z += 5;
+		force.z += 3;
 		break;
 	case sf::Keyboard::B:
-		if (force.x > 0)
-		{
+		
 			force.x -= 5;
-		}
+		
 		break;
 	case sf::Keyboard::N:
 		if (force.y > 0)
@@ -129,9 +128,9 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::O:
 		
 		
-		 maxLevel = 3;
+		 maxLevel = 2;
 		root = new MyOctant(maxLevel, 5);
-
+		
 		if (optimizeSwitch == false)
 		{
 			SafeDelete(root);
