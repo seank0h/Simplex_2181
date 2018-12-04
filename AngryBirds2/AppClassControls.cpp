@@ -77,20 +77,10 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	default: break;
 	case sf::Keyboard::Space:
 		m_sound.play();
-		m_pEntityMngr->ApplyForce(vector3(0.0f, 1.0f, 0.0f), "Steve");
+		
 		break;
 	case sf::Keyboard::LShift:
-		for (size_t i = 0; i < 0; i++)
-		{
-			yIncrement = 0;
-			m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
-			vector3 v3Position = vector3(glm::sphericalRand(12.0f));
-			v3Position.y = yIncrement;
-			v3Position.z = -40.0f;
-			matrix4 m4Position = glm::translate(v3Position);
-			m_pEntityMngr->SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
-			m_pEntityMngr->UsePhysicsSolver();
-		}
+
 		break;
 	case sf::Keyboard::R:
 		
@@ -139,8 +129,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::O:
 		
 		
-		MyOctant* root;
-		uint maxLevel = 2;
+		 maxLevel = 3;
 		root = new MyOctant(maxLevel, 5);
 
 		if (optimizeSwitch == false)
@@ -150,14 +139,14 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		}
 		optimizeSwitch = !optimizeSwitch;
 		break;
-		/*
+		
 	case sf::Keyboard::Add:
 		if (maxLevel < 4)
 		{
 			m_pEntityMngr->ClearDimensionSetAll();
 			++maxLevel;
-			SafeDelete(m_pRoot);
-			m_pRoot = new MyOctant(m_uOctantLevels, 5);
+			SafeDelete(root);
+			root = new MyOctant(maxLevel, 5);
 			std::cout << "Add" << std::endl;
 		}
 		break;
@@ -167,8 +156,8 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			m_pEntityMngr->ClearDimensionSetAll();
 			--maxLevel;
 
-			SafeDelete(m_pRoot);
-			m_pRoot = new MyOctant(m_uOctantLevels, 5);
+			SafeDelete(root);
+			root = new MyOctant(maxLevel, 5);
 			std::cout << "Subtract" << std::endl;
 
 		}
@@ -176,18 +165,18 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	case sf::Keyboard::PageUp:
 		++octantID;
 
-		if (m_uOctantID >= m_pRoot->GetOctantCount())
-			m_uOctantID = -1;
+		if (octantID >= root->GetOctantCount())
+			octantID = -1;
 
 		break;
 	case sf::Keyboard::PageDown:
-		--m_uOctantID;
+		--octantID;
 
-		if (m_uOctantID >= m_pRoot->GetOctantCount())
-			m_uOctantID = -1;
+		if (octantID >= root->GetOctantCount())
+			octantID = -1;
 
 		break;
-		*/
+		
 	}
 
 	

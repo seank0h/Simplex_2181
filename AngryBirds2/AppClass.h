@@ -12,7 +12,7 @@ Date: 2017/06
 #include "imgui\ImGuiObject.h"
 
 #include "MyEntityManager.h"
-
+#include "MyOctant.h"
 namespace Simplex
 {
 	//Adding Application to the Simplex namespace
@@ -63,7 +63,11 @@ namespace Simplex
 		vector3 angleLaunch;
 		float fAngleX;
 		float fAngleY;
+
 	public:
+		uint maxLevel = 0;
+		uint octantID=0;
+		MyOctant * root;
 		uint cameraIndex;
 		MyEntity * bird;
 		vector3 force;
@@ -71,6 +75,8 @@ namespace Simplex
 		bool cameraSwitch;
 		bool optimizeSwitch;
 		Camera* birdCam=nullptr;
+		Camera* orthoZCam = nullptr;
+		uint orthCamIndex;
 #pragma region Constructor / Run / Destructor
 		/*
 		USAGE: Constructor

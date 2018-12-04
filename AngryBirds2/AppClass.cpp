@@ -3,11 +3,10 @@
 using namespace Simplex;
 void Application::InitVariables(void)
 {
+	//set up the ortho camera to look at the castle+ball from the x axis
+	//m_pCameraMngr->SetPositionTargetAndUpward(); //
 	//Set the position and target of the camera
-	m_pCameraMngr->SetPositionTargetAndUpward(
-		vector3(0.0f, 5.0f, 25.0f), //Position
-		vector3(0.0f, 0.0f, 0.0f),	//Target
-		AXIS_Y);					//Up
+	m_pCameraMngr->SetCameraMode(CAM_ORTHO_X,0);					//Up
 
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light (0 is reserved for ambient light)
 
@@ -51,6 +50,7 @@ void Application::InitVariables(void)
 	}
 	*/
 	cameraIndex = m_pCameraMngr->AddCamera(vector3(0,5.0,25.0f),vector3(0,0,0),AXIS_Y);
+	
 	m_pEntityMngr->Update();
 }
 void Application::Update(void)
@@ -101,7 +101,10 @@ void Application::Display(void)
 
 	//clear the render list
 	m_pMeshMngr->ClearRenderList();
-
+	if (root!=nullptr)
+	{
+		root->Display();
+	}
 	//draw gui,
 	DrawGUI();
 
@@ -111,7 +114,8 @@ void Application::Display(void)
 void Application::Release(void)
 {
 	SafeDelete(m_pModel);
-
+	SafeDelete(birdCam);
+	SafeDelete(orthoZCam);
 	//Release MyEntityManager
 	MyEntityManager::ReleaseInstance();
 
