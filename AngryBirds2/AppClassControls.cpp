@@ -87,7 +87,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
 		
 		break;
-	case sf::Keyboard::F:
+	case sf::Keyboard::F1:
 	
 		cameraSwitch = !cameraSwitch;
 		
@@ -175,6 +175,27 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			octantID = -1;
 
 		break;
+
+	case sf::Keyboard::F2:
+		for (size_t i = 1; i < m_pEntityMngr->GetEntityCount(); i++)
+		{
+			m_pEntityMngr->RemoveEntity(i);
+		}
+		
+	
+		m_pEntityMngr->CreateSmallCastle();
+		for (size_t i = 1; i < m_pEntityMngr->GetEntityCount(); i++)
+		{
+			m_pEntityMngr->AddEntityToRenderList(i);
+		}
+		break;
+	case sf::Keyboard::F3:
+		for (size_t i = 1; i < m_pEntityMngr->GetEntityCount(); i++)
+		{
+			m_pEntityMngr->RemoveEntity(i);
+		}
+		m_pEntityMngr->CreateMediumCastle();
+		break;
 		
 	}
 
@@ -193,18 +214,6 @@ void Application::ProcessKeyReleased(sf::Event a_event)
 	default: break;
 	case sf::Keyboard::Escape:
 		m_bRunning = false;
-		break;
-	case sf::Keyboard::F1:
-		m_pCameraMngr->SetCameraMode(CAM_PERSP);
-		break;
-	case sf::Keyboard::F2:
-		m_pCameraMngr->SetCameraMode(CAM_ORTHO_Z);
-		break;
-	case sf::Keyboard::F3:
-		m_pCameraMngr->SetCameraMode(CAM_ORTHO_Y);
-		break;
-	case sf::Keyboard::F4:
-		m_pCameraMngr->SetCameraMode(CAM_ORTHO_X);
 		break;
 	case sf::Keyboard::F:
 		bFPSControl = !bFPSControl;

@@ -22,7 +22,7 @@ void Application::InitVariables(void)
 	bird = m_pEntityMngr->GetEntity(0);
 	m_pEntityMngr->UsePhysicsSolver();
 	bird->SetMass(100.0f);
-	bird->SetPosition(vector3(10.0f, 0.0f, 0.0f));
+	bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
 	m_pEntityMngr->CreateSmallCastle();
 	//m_pEntityMngr->CreateMediumCastle();
 	//m_pEntityMngr->CreateLargeCastle();

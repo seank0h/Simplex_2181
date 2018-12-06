@@ -46,14 +46,12 @@ void Application::DrawGUI(void)
 			ImGui::Separator();
 			ImGui::Text("Controls:\n");
 			ImGui::Text("   WASD: Movement for Camera\n");
-			ImGui::Text("	 F1: Perspective\n");
-			ImGui::Text("	 F2: Orthographic X\n");
-			ImGui::Text("	 F3: Orthographic Y\n");
+			ImGui::Text("	Press F1: To switch between projectile perspective or Ortho X\n");
 			ImGui::Text("	 Press R to reset projectile to its original location");
-			ImGui::Text("	 Press F to have camera follow projectile");
+			ImGui::Text("    Press O to enable spatial optimization");
+			ImGui::Text("    Press + or - to increment or decremnt octree level");
 			ImGui::Separator();
-			ImGui::Text("Press LShift to insantiate blocks");
-			ImGui::Text("1: Launch Projectile");
+			ImGui::Text("press 1 to Launch Projectile");
 			ImGui::Text("Press the Corresponding Letters to increase the variable");
 			ImGui::Text("Force Vector X:%i", (int)force.x);
 			ImGui::Text("Force Vector Y:%i", (int)force.y);
