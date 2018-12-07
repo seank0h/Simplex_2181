@@ -25,13 +25,15 @@ namespace Simplex
 
 		static std::map<String, MyEntity*> m_IDMap; //a map of the unique ID's
 
-		bool m_bUsePhysicsSolver = false; //Indicates if we will use a physics solver 
+		
 
 		MySolver* m_pSolver = nullptr; //Physics MySolver
 
 	public:
 		//variable to determine whether or not this object is slated for deletion
 		bool deleteThis = false;
+
+		bool m_bUsePhysicsSolver = false; //Indicates if we will use a physics solver 
 
 		//counter for determining when to delete this object
 		uint deletionCounter = 0;

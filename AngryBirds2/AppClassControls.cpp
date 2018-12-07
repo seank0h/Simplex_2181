@@ -84,7 +84,9 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		break;
 	case sf::Keyboard::R:
 		
-		bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
+		bird->SetPosition(vector3(9.0f, 0.0f, 0.0f));
+		bird->SetVelocity(vector3(0.0f, 0.0f, 0.0f));
+		//m_pEntityMngr->RemoveAllBlocks(true);
 		
 		break;
 	case sf::Keyboard::F1:
@@ -94,6 +96,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		
 		//m_pCameraMngr->SetPositionTargetAndUpward(vector3(bird->GetPosition()), vector3(bird->GetPosition()),vector3(0.0f,1.0f,0.0f),-1);
 		break;
+
 	case sf::Keyboard::Num1:
 		bird->ApplyForce(force);
 	case sf::Keyboard::RShift:
@@ -177,26 +180,20 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		break;
 
 	case sf::Keyboard::F2:
-		for (size_t i = 1; i < m_pEntityMngr->GetEntityCount(); i++)
-		{
-			m_pEntityMngr->RemoveEntity(i);
-		}
-		
-	
+
+		m_pEntityMngr->RemoveAllBlocks();
 		m_pEntityMngr->CreateSmallCastle();
-		for (size_t i = 1; i < m_pEntityMngr->GetEntityCount(); i++)
-		{
-			m_pEntityMngr->AddEntityToRenderList(i);
-		}
 		break;
 	case sf::Keyboard::F3:
-		for (size_t i = 1; i < m_pEntityMngr->GetEntityCount(); i++)
-		{
-			m_pEntityMngr->RemoveEntity(i);
-		}
+
+		m_pEntityMngr->RemoveAllBlocks();
 		m_pEntityMngr->CreateMediumCastle();
 		break;
-		
+	case sf::Keyboard::F4:
+
+		m_pEntityMngr->RemoveAllBlocks();
+		m_pEntityMngr->CreateLargeCastle();
+		break;
 	}
 
 	

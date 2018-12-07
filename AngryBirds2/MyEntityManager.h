@@ -62,7 +62,7 @@ namespace Simplex
 		ARGUMENTS: String a_sUniqueID -> Unique Identifier
 		OUTPUT: ---
 		*/
-		void RemoveAllEntities();
+		void RemoveAllBlocks(bool removeSolversOnly = false);
 		/*
 		USAGE: Gets the uniqueID name of the entity indexed
 		ARGUMENTS: uint a_uIndex = -1 -> index of the queried entry, if < 0 asks for the last one added

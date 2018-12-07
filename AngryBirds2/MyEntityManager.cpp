@@ -195,7 +195,7 @@ void Simplex::MyEntityManager::Update(void)
 		//Update each entity
 		m_mEntityArray[i]->Update();
 		//if an entity has been marked for deletion and its counter has exceeded a specified amount, delete it
-		if (m_mEntityArray[i]->deletionCounter >= 300)
+		if (m_mEntityArray[i]->deletionCounter >= 40)
 			RemoveEntity(i);
 	}
 }
@@ -266,12 +266,17 @@ void Simplex::MyEntityManager::RemoveEntity(String a_sUniqueID)
 	int nIndex = GetEntityIndex(a_sUniqueID);
 	RemoveEntity((uint)nIndex);
 }
-void Simplex::MyEntityManager::RemoveAllEntities()
+void Simplex::MyEntityManager::RemoveAllBlocks(bool deleteSolversOnly)
 {
-	for (GLuint i = 0; i < GetEntityCount(); i++)
+	int total = GetEntityCount();
+	for (GLuint i = 0; i <= total; i++)
 	{
-		RemoveEntity(i);
+		if (GetEntity(i)->GetUniqueID() != "Sun")
+		{
+			RemoveEntity(i);
+		}
 	}
+	
 }
 Simplex::String Simplex::MyEntityManager::GetUniqueID(uint a_uIndex)
 {

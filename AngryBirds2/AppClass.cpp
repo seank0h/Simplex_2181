@@ -20,9 +20,11 @@ void Application::InitVariables(void)
 
 	m_pEntityMngr->AddEntity("Planets\\00_Sun.obj", "Sun");
 	bird = m_pEntityMngr->GetEntity(0);
+	bird->SetPosition(vector3(9.0f, 0.0f, 0.0f));
 	m_pEntityMngr->UsePhysicsSolver();
 	bird->SetMass(100.0f);
 	bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
+
 	m_pEntityMngr->CreateSmallCastle();
 	//m_pEntityMngr->CreateMediumCastle();
 	//m_pEntityMngr->CreateLargeCastle();
