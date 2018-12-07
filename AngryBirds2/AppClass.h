@@ -68,7 +68,7 @@ namespace Simplex
 		uint maxLevel = 0;
 		uint octantSize = 0;
 		uint octantID=0;
-		MyOctant * root;
+		MyOctant * root = nullptr;
 		uint cameraIndex;
 		MyEntity * bird;
 		vector3 force;

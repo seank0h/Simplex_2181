@@ -130,15 +130,18 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		break;
 	case sf::Keyboard::O:
 		
-		maxLevel = 2;
-		root = new MyOctant(maxLevel, 5);
-		
-		if (optimizeSwitch == false)
-		{
-			SafeDelete(root);
-
-		}
+		//change the switch's status
 		optimizeSwitch = !optimizeSwitch;
+		//if its now on, make the root
+		if (optimizeSwitch)
+		{
+			maxLevel = 2;
+			root = new MyOctant(maxLevel, 5);
+		}
+		//if its now off, delete the root
+		else {
+			SafeDelete(root);
+		}
 		break;
 		
 	case sf::Keyboard::Add:

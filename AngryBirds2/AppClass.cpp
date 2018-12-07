@@ -28,7 +28,7 @@ void Application::InitVariables(void)
 	m_pEntityMngr->CreateSmallCastle();
 	//m_pEntityMngr->CreateMediumCastle();
 	//m_pEntityMngr->CreateLargeCastle();
-	optimizeSwitch = true;
+	optimizeSwitch = false;
 	m_pEntityMngr->SetMass(5.0f, 0);
 	force = vector3(0.0f, 10.0f, 25.0f);
 

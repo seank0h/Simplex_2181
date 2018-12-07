@@ -384,14 +384,15 @@ void MyOctant::AssignIDtoEntity(void)
 			{
 				//If True add the entity collided
 				m_EntityList.push_back(i);
-				//Increment dimension
+				//Add this octant to the entity in question
 				if (m_pEntityMngr->GetEntity(i)->GetUniqueID().find("Block_" + i))
 				{
 					m_pEntityMngr->AddDimension(i, octantID);
-					m_pEntityMngr->AddDimension(0, octantID);
 				}
 			}
 		}
+		//always add every dimension to the first entity (the bird) since it will check against everything always
+		m_pEntityMngr->AddDimension(0, octantID);
 	}
 
 
