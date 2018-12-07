@@ -17,13 +17,13 @@ void Application::InitVariables(void)
 	m_pModel->Load("Minecraft\\Steve.obj");
 	
 	//m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
-
-	m_pEntityMngr->AddEntity("Planets\\00_Sun.obj", "Sun");
+	m_pEntityMngr->AddEntity("Planets\\AngryBird.obj", "Sun");
 	bird = m_pEntityMngr->GetEntity(0);
 	bird->SetPosition(vector3(9.0f, 0.0f, 0.0f));
 	m_pEntityMngr->UsePhysicsSolver();
 	bird->SetMass(100.0f);
 	bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
+	bird->AddDimension(0);
 
 	m_pEntityMngr->CreateSmallCastle();
 	//m_pEntityMngr->CreateMediumCastle();
@@ -121,6 +121,7 @@ void Application::Release(void)
 {
 	SafeDelete(m_pModel);
 	SafeDelete(birdCam);
+	SafeDelete(orthoXCam);
 	SafeDelete(root);
 	//SafeDelete(orthoZCam);
 	//Release MyEntityManager

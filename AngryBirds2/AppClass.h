@@ -66,6 +66,7 @@ namespace Simplex
 
 	public:
 		uint maxLevel = 0;
+		uint octantSize = 0;
 		uint octantID=0;
 		MyOctant * root;
 		uint cameraIndex;

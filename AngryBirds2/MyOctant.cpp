@@ -347,7 +347,7 @@ void MyOctant::AssignIDtoEntity(void)
 		m_pChild[i]->AssignIDtoEntity();
 	}
 	//If leaf 
-	if (currChildrenCount == 0)
+	/*if (currChildrenCount == 0)
 	{
 		//Getting Entity Count
 		uint entityCount = m_pEntityMngr->GetEntityCount();
@@ -366,10 +366,30 @@ void MyOctant::AssignIDtoEntity(void)
 				}
 				else if (m_pEntityMngr->GetEntity(i)->GetUniqueID().find("Sun"))
 				{
-					
 					m_pEntityMngr->AddDimension(i, octantID);
 				}
 				
+			}
+		}
+	}*/
+
+	if (currChildrenCount == 0)
+	{
+		//Getting Entity Count
+		uint entityCount = m_pEntityMngr->GetEntityCount();
+		for (GLuint i = 0; i < entityCount; i++)
+		{
+			//Check collision between other entities
+			if (isColliding(i))
+			{
+				//If True add the entity collided
+				m_EntityList.push_back(i);
+				//Increment dimension
+				if (m_pEntityMngr->GetEntity(i)->GetUniqueID().find("Block_" + i))
+				{
+					m_pEntityMngr->AddDimension(i, octantID);
+					m_pEntityMngr->AddDimension(0, octantID);
+				}
 			}
 		}
 	}

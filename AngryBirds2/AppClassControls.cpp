@@ -130,8 +130,7 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		break;
 	case sf::Keyboard::O:
 		
-		
-		 maxLevel = 2;
+		maxLevel = 2;
 		root = new MyOctant(maxLevel, 5);
 		
 		if (optimizeSwitch == false)
@@ -180,17 +179,17 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		break;
 
 	case sf::Keyboard::F2:
-
+		//octantSize = 1;
 		m_pEntityMngr->RemoveAllBlocks();
 		m_pEntityMngr->CreateSmallCastle();
 		break;
 	case sf::Keyboard::F3:
-
+		//octantSize = 3;
 		m_pEntityMngr->RemoveAllBlocks();
 		m_pEntityMngr->CreateMediumCastle();
 		break;
 	case sf::Keyboard::F4:
-
+		//octantSize = 3;
 		m_pEntityMngr->RemoveAllBlocks();
 		m_pEntityMngr->CreateLargeCastle();
 		break;
