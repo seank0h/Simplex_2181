@@ -65,7 +65,8 @@ namespace Simplex
 		float fAngleY;
 
 	public:
-		uint maxLevel = 0;
+		uint maxLevel = 3;
+		uint currLevel = 0;
 		uint octantSize = 0;
 		uint octantID=0;
 		MyOctant * root = nullptr;
@@ -75,8 +76,11 @@ namespace Simplex
 		vector3 birdLoc;
 		bool cameraSwitch;
 		bool optimizeSwitch;
+		bool freeSwitch;
+		bool displaySwitch;
 		Camera* birdCam=nullptr;
 		Camera* orthoXCam = nullptr;
+		Camera* freeCam = nullptr;
 		uint orthCamIndex;
 #pragma region Constructor / Run / Destructor
 		/*

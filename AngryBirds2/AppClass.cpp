@@ -4,59 +4,45 @@ using namespace Simplex;
 void Application::InitVariables(void)
 {
 	//set up the ortho camera to look at the castle+ball from the x axis
-	
-	//m_pCameraMngr->SetPositionTargetAndUpward(); //
 	//Set the position and target of the camera
 	m_pCameraMngr->SetCameraMode(CAM_ORTHO_X,0);					//Up
 	m_pCameraMngr->SetPosition(vector3(50.0f, 0.0f, 0.0f), 0);
 	m_pCameraMngr->SetUpward(AXIS_Y, 0);
+
 	m_pLightMngr->SetPosition(vector3(0.0f, 3.0f, 13.0f), 1); //set the position of first light (0 is reserved for ambient light)
 
 	
-	m_pModel = new Model();
-	m_pModel->Load("Minecraft\\Steve.obj");
 	
-	//m_pEntityMngr->AddEntity("Minecraft\\Steve.obj", "Steve_" + std::to_string(m_pEntityMngr->GetEntityCount()));
+	
+	//Setting up our projectile
 	m_pEntityMngr->AddEntity("Planets\\AngryBird.obj", "Sun");
 	bird = m_pEntityMngr->GetEntity(0);
-	bird->SetPosition(vector3(9.0f, 0.0f, 0.0f));
 	m_pEntityMngr->UsePhysicsSolver();
-	bird->SetMass(100.0f);
-	bird->SetPosition(vector3(0.0f, 0.0f, 0.0f));
-	bird->AddDimension(0);
-
+	bird->SetPosition(vector3(9.0f, 0.0f, 0.0f));
+	
+	//Initializing beginning level
 	m_pEntityMngr->CreateSmallCastle();
-	//m_pEntityMngr->CreateMediumCastle();
-	//m_pEntityMngr->CreateLargeCastle();
-	optimizeSwitch = false;
+	//Setting mass for all the blocks
 	m_pEntityMngr->SetMass(5.0f, 0);
-	force = vector3(0.0f, 10.0f, 25.0f);
+	//Setting mass for bird separately
+	bird->SetMass(10.0f);
+	//Initializing switch variables
+	optimizeSwitch = false;
+	freeSwitch = false;
+	displaySwitch = true;
+	//Initial Force Value for the launch
+	force = vector3(0.0f, 8.0f, 35.0f);
 
-	//m_pMeshMngr->AddPlaneToRenderList
-	//Ground
-	//MyMesh m_pPlane = new MyMesh();
+	//Adding Cameras
+	//Projectile View
+	//Camera Index:1
+	m_pCameraMngr->AddCamera(vector3(0,5.0,25.0f),vector3(0,0,0),AXIS_Y);
+	//Free View
+	//Camera Index:2 
+	m_pCameraMngr->AddCamera(vector3(2, 10.0, 0.0f), vector3(0, 0, 0), AXIS_Y);
 
-	//m_pMeshMngr->GeneratePlane(100.0f, vector3(2.0f));
-	
-
-	//m_pMeshMngr->AddPlaneToRenderList(IDENTITY_M4, C_WHITE);
-	/*
-	for (int i = 0; i < 100; i++)
-	{
-		m_pEntityMngr->AddEntity("Minecraft\\Cube.obj", "Cube_" + std::to_string(i));
-		vector3 v3Position = vector3(glm::sphericalRand(12.0f));
-		v3Position.y = 0.0f;
-		matrix4 m4Position = glm::translate(v3Position);
-		m_pEntityMngr->SetModelMatrix(m4Position * glm::scale(vector3(2.0f)));
-		m_pEntityMngr->UsePhysicsSolver();
-		//m_pEntityMngr->SetMass(2);
-
-		//m_pEntityMngr->SetMass(i+1);
-	}
-	*/
-	cameraIndex = m_pCameraMngr->AddCamera(vector3(0,5.0,25.0f),vector3(0,0,0),AXIS_Y);
-	
 	m_pEntityMngr->Update();
+
 }
 void Application::Update(void)
 {
@@ -73,25 +59,30 @@ void Application::Update(void)
 	m_pEntityMngr->Update();
 	birdLoc = bird->GetPosition();
 	
-	//Set the model matrix for the main object
-	//m_pEntityMngr->SetModelMatrix(m_m4Steve, "Steve");
-
-	//Add objects to render list
-	if (cameraSwitch)
+	
+	//Switching Cameras
+	//Bird Following
+	if (cameraSwitch&&freeSwitch==false)
 	{
-		birdCam = m_pCameraMngr->GetCamera(cameraIndex);
+		birdCam = m_pCameraMngr->GetCamera(1);
 		birdCam->SetPosition(vector3(birdLoc.x, birdLoc.y, birdLoc.z - 30.0f));
 		birdCam->SetTarget(birdLoc);
-		m_pCameraMngr->SetActiveCamera(cameraIndex);
+		m_pCameraMngr->SetActiveCamera(1);
 	}
+	//Free camera
+	else if (freeSwitch&&cameraSwitch==false)
+	{
+		m_pCameraMngr->SetActiveCamera(2);
+	}
+	//Ortho X
 	else
 	{
 		m_pCameraMngr->SetActiveCamera(0);
 	}
-	if (root != nullptr)
-	{
-		root->Display();
-	}
+	
+
+
+	//Add objects to render list
 	m_pEntityMngr->AddEntityToRenderList(-1, true);
 	//m_pEntityMngr->AddEntityToRenderList(-1, true);
 }
@@ -103,7 +94,11 @@ void Application::Display(void)
 	// draw a skybox
 	m_pMeshMngr->AddSkyboxToRenderList();
 
-	
+	//Making root display only when user wants it so
+	if (root != nullptr && displaySwitch == true)
+	{
+		root->Display();
+	}
 
 	//render list call
 	m_uRenderCallCount = m_pMeshMngr->Render();
@@ -119,7 +114,6 @@ void Application::Display(void)
 }
 void Application::Release(void)
 {
-	SafeDelete(m_pModel);
 	SafeDelete(birdCam);
 	SafeDelete(orthoXCam);
 	SafeDelete(root);

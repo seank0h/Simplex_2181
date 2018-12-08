@@ -75,59 +75,130 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 	switch (a_event.key.code)
 	{
 	default: break;
-	case sf::Keyboard::Space:
-		m_sound.play();
-		
-		break;
+#pragma region GameControls
 	case sf::Keyboard::LShift:
-
+		bird->ApplyForce(force);
 		break;
 	case sf::Keyboard::R:
-		
+
 		bird->SetPosition(vector3(9.0f, 0.0f, 0.0f));
 		bird->SetVelocity(vector3(0.0f, 0.0f, 0.0f));
-		//m_pEntityMngr->RemoveAllBlocks(true);
-		
+
 		break;
+	case sf::Keyboard::Num1:
+		//octantSize = 1;
+		m_pEntityMngr->RemoveAllBlocks();
+		if (optimizeSwitch)
+		{
+			SafeDelete(root);
+			m_pEntityMngr->CreateSmallCastle();
+			root = new MyOctant(currLevel, 5);
+		}
+		else
+		{
+			m_pEntityMngr->CreateSmallCastle();
+		}
+
+		break;
+	case sf::Keyboard::Num2:
+		//octantSize = 3;
+		m_pEntityMngr->RemoveAllBlocks();
+		if (optimizeSwitch)
+		{
+			SafeDelete(root);
+			m_pEntityMngr->CreateMediumCastle();
+			root = new MyOctant(currLevel, 5);
+		}
+		else
+		{
+			m_pEntityMngr->CreateMediumCastle();
+		}
+
+		break;
+	case sf::Keyboard::Num3:
+		//octantSize = 3;
+		m_pEntityMngr->RemoveAllBlocks();
+		if (optimizeSwitch)
+		{
+			SafeDelete(root);
+			m_pEntityMngr->CreateLargeCastle();
+			root = new MyOctant(currLevel, 5);
+		}
+		else
+		{
+			m_pEntityMngr->CreateLargeCastle();
+		}
+
+		break;
+#pragma endregion
+#pragma region CameraControls
+
+
 	case sf::Keyboard::F1:
 	
+		if (freeSwitch)
+		{
+			freeSwitch = false;
+		}
+		
 		cameraSwitch = !cameraSwitch;
 		
+		break;
+	case sf::Keyboard::Space:
 		
-		//m_pCameraMngr->SetPositionTargetAndUpward(vector3(bird->GetPosition()), vector3(bird->GetPosition()),vector3(0.0f,1.0f,0.0f),-1);
+		if (cameraSwitch)
+		{
+			cameraSwitch = false;
+		}
+			freeSwitch = !freeSwitch;
+			if (freeSwitch)
+			{
+				freeCam = m_pCameraMngr->GetCamera(2);
+				freeCam->SetPositionTargetAndUpward(vector3(2, 10.0, 0.0f), vector3(0, 0, 20.0f), AXIS_Y);
+			}
+		
 		break;
 
-	case sf::Keyboard::Num1:
-		bird->ApplyForce(force);
-	case sf::Keyboard::RShift:
-		m_bModifier = true;
-		break;
+#pragma endregion
+#pragma region ForceControls
+
+
+
 	case sf::Keyboard::X:
 		force.x += 1;
 		break;
 	case sf::Keyboard::Y:
-		force.y += 5;
+		force.y += 1;
 		break;
 	case sf::Keyboard::Z:
-		force.z += 3;
+		force.z += 1;
 		break;
 	case sf::Keyboard::B:
 		
-			force.x -= 5;
+			force.x -= 1;
 		
 		break;
 	case sf::Keyboard::N:
-		if (force.y > 0)
+		if (force.y > 2)
 		{
-			force.y -= 5;
+			force.y -= 1;
+		}
+		if (force.y < 2)
+		{
+			force.y = 1;
 		}
 		break;
 	case sf::Keyboard::M:
 		if (force.z > 0)
 		{
-			force.z -= 5;
+			force.z -= 1;
 		}
 		break;
+#pragma endregion
+#pragma region SpatialOptimizationControls
+
+
+
 	case sf::Keyboard::O:
 		
 		//change the switch's status
@@ -135,33 +206,38 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 		//if its now on, make the root
 		if (optimizeSwitch)
 		{
-			maxLevel = 2;
-			root = new MyOctant(maxLevel, 5);
+			currLevel = 2;
+			root = new MyOctant(currLevel, 5);
+			//Add the bird to the dimension of all collisions after making octant
+			bird->AddDimension(0);
 		}
 		//if its now off, delete the root
 		else {
 			SafeDelete(root);
 		}
 		break;
+	case sf::Keyboard::V:
 		
+		displaySwitch = !displaySwitch;
+		break;
 	case sf::Keyboard::Add:
-		if (maxLevel < 4)
+		if (currLevel < maxLevel)
 		{
 			m_pEntityMngr->ClearDimensionSetAll();
-			++maxLevel;
+			++currLevel;
 			SafeDelete(root);
-			root = new MyOctant(maxLevel, 5);
+			root = new MyOctant(currLevel, 5);
 			std::cout << "Add" << std::endl;
 		}
 		break;
 	case sf::Keyboard::Subtract:
-		if (maxLevel > 0)
+		if (currLevel > 0)
 		{
 			m_pEntityMngr->ClearDimensionSetAll();
-			--maxLevel;
+			--currLevel;
 
 			SafeDelete(root);
-			root = new MyOctant(maxLevel, 5);
+			root = new MyOctant(currLevel, 5);
 			std::cout << "Subtract" << std::endl;
 
 		}
@@ -180,22 +256,8 @@ void Application::ProcessKeyPressed(sf::Event a_event)
 			octantID = -1;
 
 		break;
+#pragma endregion
 
-	case sf::Keyboard::F2:
-		//octantSize = 1;
-		m_pEntityMngr->RemoveAllBlocks();
-		m_pEntityMngr->CreateSmallCastle();
-		break;
-	case sf::Keyboard::F3:
-		//octantSize = 3;
-		m_pEntityMngr->RemoveAllBlocks();
-		m_pEntityMngr->CreateMediumCastle();
-		break;
-	case sf::Keyboard::F4:
-		//octantSize = 3;
-		m_pEntityMngr->RemoveAllBlocks();
-		m_pEntityMngr->CreateLargeCastle();
-		break;
 	}
 
 	
@@ -214,6 +276,7 @@ void Application::ProcessKeyReleased(sf::Event a_event)
 	case sf::Keyboard::Escape:
 		m_bRunning = false;
 		break;
+	
 	case sf::Keyboard::F:
 		bFPSControl = !bFPSControl;
 		m_pCameraMngr->SetFPS(bFPSControl);

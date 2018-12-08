@@ -275,7 +275,7 @@ bool MyOctant::isLeaf()
 {
 	return false;
 }
-
+//Checking how many in dimension based on collision count
 bool MyOctant::ContainsMoreThan(uint a_nEntities)
 {
 	uint collCount = 0;

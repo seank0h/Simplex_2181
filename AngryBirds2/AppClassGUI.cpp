@@ -44,15 +44,24 @@ void Application::DrawGUI(void)
 			ImGui::Text("FrameRate: %.2f [FPS] -> %.3f [ms/frame]\n",
 				ImGui::GetIO().Framerate, 1000.0f / ImGui::GetIO().Framerate);
 			ImGui::Separator();
+			//Camera Controls and Helper controls
 			ImGui::Text("Controls:\n");
 			ImGui::Text("   WASD: Movement for Camera\n");
-			ImGui::Text("	Press F1: To switch between projectile perspective or Ortho X\n");
-			ImGui::Text("	 Press R to reset projectile to its original location");
-			ImGui::Text("    Press O to enable spatial optimization");
-			ImGui::Text("    Press + or - to increment or decremnt octree level");
+			ImGui::Text("	 Press F1: To switch between projectile perspective or Ortho X\n");
+			ImGui::Text("    Press Space: To switch between the camera views to a free moving camera");
+			ImGui::Text("	 Press R to reset projectile to its original location\n");
+			//Spatial optimization controls
 			ImGui::Separator();
-			ImGui::Text("press 1 to Launch Projectile");
-			ImGui::Text("Press the Corresponding Letters to increase the variable");
+			ImGui::Text("    Press O to enable spatial optimization\n");
+			ImGui::Text("    Press V to enable/disable visual cues of Octree");
+			ImGui::Text("    Press + or - to increment or decremnt octree level\n");
+			//Game Controls
+			ImGui::Separator();
+			ImGui::Text("Press LShift to Launch Projectile");
+			ImGui::Text("Press 1 to create a Small Castle");
+			ImGui::Text("Press 2 to create a Medium Castle");
+			ImGui::Text("Press 3 to create a Large Castle");
+			ImGui::Text("Press the Corresponding Letters to increase the force in that axis");
 			ImGui::Text("Force Vector X:%i", (int)force.x);
 			ImGui::Text("Force Vector Y:%i", (int)force.y);
 			ImGui::Text("Force Vector Z:%i", (int)force.z);
